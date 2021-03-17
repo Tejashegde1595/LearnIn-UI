@@ -1,0 +1,27 @@
+.postArea{
+  width: 70vw;
+  height: fit-content;
+  padding: 10px;
+  border: 2px solid darkgray;
+  border-radius: 10px;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.postArea input:focus{
+ background-color: lightgrey;
+ color: black;
+}
+
+.postArea button{
+    background-color: lightgrey;
+    color: black;
+    width: 30%;
+    margin-left: 70%;
+    align-items: center;
+}
+
+.postArea button:hover{
+    background-color: darkgray;
+    color: black;
+}
