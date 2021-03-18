@@ -1,0 +1,51 @@
+.comments{
+    width: 70vw;
+    height: fit-content;
+    padding: 2%;
+    border: 1px solid lightskyblue;
+    border-radius: 10px;
+    margin-left: 8%;
+    margin-right: 10%;
+    margin-top: 5%;
+    box-shadow: 5px 5px black;
+    background-color: #abbcd6;
+}
+
+.uploadedUserName{
+    font-family: 'Dancing Script', cursive;
+    font-weight: lighter;
+}
+
+.postContent{
+    font-family: 'Antic Slab', serif;
+    font-weight: bolder;
+    font-size: larger;
+}
+.uploadedTime{
+    float: right;
+}
+.likesNumber{
+    float: left;
+    color: blueviolet;
+}
+
+.commentsNumber{
+    float: right;
+    color: crimson;
+    font-weight: bolder;
+}
+
+.postLikes{
+    float: left;
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+.postComments{
+    float: right;
+    font-size: 20px;
+}
+
+.eventSection{
+  border-top: 1px solid black;
+}

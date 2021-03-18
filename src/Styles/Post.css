@@ -2,26 +2,24 @@
   width: 70vw;
   height: fit-content;
   padding: 10px;
-  border: 2px solid darkgray;
+  border: 1px solid lightgray;
   border-radius: 10px;
-  margin-left: 10%;
+  margin-left: 8%;
   margin-right: 10%;
+  background-color: #abbcd6;
 }
 
 .postArea input:focus{
- background-color: lightgrey;
+ background-color: white;
  color: black;
 }
 
 .postArea button{
-    background-color: lightgrey;
-    color: black;
     width: 30%;
     margin-left: 70%;
     align-items: center;
 }
 
 .postArea button:hover{
-    background-color: darkgray;
-    color: black;
+    background-color: darkgreen;
 }

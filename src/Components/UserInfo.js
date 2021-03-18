@@ -18,9 +18,19 @@ class UserInfo extends Component{
     }
 
     render(){
+        let userCard={
+            border:'2px solid black',
+            borderRadius:'25px',
+            backgroundColor: '#abbcd6'
+          }
+        let userImage={
+            border:'2px solid white',
+            borderRadius:'25px'
+        }
+          
         return(
-            <div className="card userInfo">
-                <img className="card-img-top" src={profilePicture} alt="Card image cap"/>
+            <div className="userInfo card" style={userCard}>
+                <img className="card-img-top" style={userImage} src={profilePicture} alt="Card image cap"/>
                 <div className="card-body">
                     <h5 className="card-title">{this.state.user.firstName}</h5>
                     <p className="card-text">{this.state.user.about}</p>
