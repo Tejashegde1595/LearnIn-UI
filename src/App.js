@@ -9,7 +9,7 @@ import PostsFeed from './Components/PostsFeed';
 function App() {
   return (
     <div className="App">
-        <Header/>
+        <Header headerBtn1='Profile' headerBtn2='Home' headerBtn3='LogOut'/>
         <div className='feed'>
           <UserInfo className='userInfo'></UserInfo>
           <Post className='postInfo'></Post>

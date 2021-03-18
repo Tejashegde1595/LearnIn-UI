@@ -1,0 +1,11 @@
+.registerShow{
+    color: black;
+    font-weight: bolder;
+    width: 30vw;
+    float:right;
+    margin:5%;
+}
+
+.registerHide{
+    display: none;
+}
