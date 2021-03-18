@@ -45,6 +45,22 @@ class PostsFeed extends Component{
                     likes:2,
                     comments:[],
                     uploadedTime:'10-21-2021'
+                },
+                {
+                    postId:'104',
+                    userId:'1441',
+                    userName:'Bob',
+                    post:'The Great Wall is coming down',
+                    likes:2,
+                    comments:[
+                        {
+                            userId:'401',
+                            userName:'Sam',
+                            commentId:'101',
+                            comment:'What a day!'
+                        }
+                    ],
+                    uploadedTime:'10-15-2021'
                 }
             ]
         }
@@ -55,7 +71,7 @@ class PostsFeed extends Component{
             {
                 this.state.posts.map((posts)=>{
                     return(
-                        <div className='comments'>
+                        <div className='comments' key={posts.postId}>
                             <p className='uploadedUserName'>{posts.userName}<span className='uploadedTime'>{posts.uploadedTime}</span></p>
                             <p className='postContent'>{posts.post}</p>
                             <p><span className='likesNumber'>{posts.likes}</span><span className='commentsNumber'>{posts.comments.length}</span></p><br/>
