@@ -1,0 +1,22 @@
+.logo{
+    float: left;
+    margin-left: 20px;
+    font-family: 'Dancing Script', cursive;
+}
+
+.homeBtn{
+    float: right;
+    margin-right: 20px;
+    font-family: 'Dancing Script', cursive;
+}
+
+
+
+.header{
+    display: block;
+    justify-content: center;
+    background-color: black;
+    color: white;
+    overflow: auto;
+    font-family: 'Dancing Script', cursive;
+}

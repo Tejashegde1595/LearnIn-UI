@@ -1,0 +1,13 @@
+body{
+    background-color: sienna;
+    font-family: 'Roboto', sans-serif;
+    font-size: large;
+}
+
+.homePhoto{
+    height: 30%;
+    width: 35%;
+    margin:5%;
+    margin-left: 10%;
+    border-radius: 20%;
+}
