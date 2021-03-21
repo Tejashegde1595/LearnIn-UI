@@ -6,12 +6,12 @@ const Post = (props)=>{
     return(
         <div>
         <div className='postArea'>
-            <input className='form-control' id='postInput' placeholder="Pen your post...."></input>
+            <input className='form-control' onChange={props.onChangePostInput} id='content' name='content' placeholder="Pen your post...."></input>
             <br/>
-            <button className='btn btn-success'>Post</button>
+            <button className='btn btn-success' onClick={props.post}>Post</button>
         </div>
         <div>
-            <PostsFeed></PostsFeed>
+            <PostsFeed posts={props.posts}></PostsFeed>
         </div>
         </div>
     )
