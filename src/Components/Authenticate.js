@@ -4,6 +4,7 @@ import Register from "./Register";
 import '../Styles/Authenticate.css';
 import Login from "./Login";
 import homePhoto from '../Images/studentlearning.jpg';
+import { useHistory } from 'react-router-dom';
 class Authenticate extends Component{
     constructor(){
         super();
@@ -18,7 +19,13 @@ class Authenticate extends Component{
                 dob:'',
                 contactNumber:''
             },
-            isState:true
+            loginFormData:{
+                userName:'',
+                password:''
+            },
+            isState:true,
+            message:null,
+            loginMessage:null
         }
     }
     
@@ -42,6 +49,11 @@ class Authenticate extends Component{
         this.setState({registerFormData:updatedFormData});
     }
 
+    onChangeLoginHandler(e){
+        let updatedFormData = this.state.loginFormData;
+        updatedFormData[e.target.name] = e.target.value;
+        this.setState({loginFormData:updatedFormData});
+    }
 
     registerHandler=(e)=>{
         e.preventDefault();
@@ -51,9 +63,40 @@ class Authenticate extends Component{
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(this.state.registerFormData)
         };
-        fetch('http://127.0.0.1:800/api/user/signup',requestOptions)
+        fetch('http://localhost:8080/api/user/signup',requestOptions)
         .then(response=>{
-            console.log(response.json())
+            return response.json();
+        }).then((data)=>{
+            if(data.message===undefined)
+                data.message=data.status;
+            this.setState({message:data.message})
+        }).catch(err=>{
+            let error='Server Error';
+            this.setState({message:error})
+        })
+    }
+
+    loginHandler=(e)=>{
+        e.preventDefault();
+        let authorizationToken = btoa(this.state.loginFormData.userName+':'+this.state.loginFormData.password);
+        const requestOptions = {
+            method: 'POST',
+            headers: 
+                { 
+                 'Content-Type': 'application/json' ,
+                 'Authorization':'Basic '+authorizationToken
+                }
+        };
+        fetch('http://localhost:8080/api/user/signin',requestOptions)
+        .then(response=>{
+            localStorage.setItem('access_token',response.headers.get('access_token'));
+            return response.json();
+        }).then((data)=>{
+            if(data.id===undefined){
+                this.setState({loginMessage:data.message});
+                return;
+            }
+            this.props.history.push('/feed');
         }).catch(err=>{
             console.log(err);
         })
@@ -61,11 +104,11 @@ class Authenticate extends Component{
 
     render(){
         return(
-            <div className='authentcate'>
+            <div className='authenticate'>
                 <Header></Header>
                 <img className='homePhoto' src={homePhoto}></img>
-                <Login registerSwitch={this.registerSwitchHandler} />
-                <Register loginSwitch={this.loginSwitchHandler} register={this.registerHandler} onChangeInput={this.onChangeHandler.bind(this)}/>
+                <Login message={this.state.loginMessage} registerSwitch={this.registerSwitchHandler} onChangeInput={this.onChangeLoginHandler.bind(this)} login={this.loginHandler} />
+                <Register message={this.state.message} loginSwitch={this.loginSwitchHandler} register={this.registerHandler} onChangeInput={this.onChangeHandler.bind(this)}/>
             </div>
             
         )
