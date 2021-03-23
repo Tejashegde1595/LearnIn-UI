@@ -11,7 +11,7 @@ const Post = (props)=>{
             <button className='btn btn-success' onClick={props.post}>Post</button>
         </div>
         <div>
-            <PostsFeed posts={props.posts}></PostsFeed>
+            <PostsFeed posts={props.posts} likePost={props.likePost}></PostsFeed>
         </div>
         </div>
     )

@@ -39,6 +39,7 @@
     float: left;
     font-size: 20px;
     font-weight: bolder;
+    cursor: pointer;
 }
 
 .postComments{
@@ -49,3 +50,4 @@
 .eventSection{
   border-top: 1px solid black;
 }
+
