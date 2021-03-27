@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import profilePicture from '../Images/strange.jpg';
+import profilePicture from '../Images/kid.jpg';
 import GetImages from '../Images/GetImages';
 import '../Styles/UserInfo.css';
  

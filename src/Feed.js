@@ -136,7 +136,7 @@ class Feed extends Component {
   render(){
     return (
       <div className="App">
-          <Header headerBtn1='Profile' headerBtn2='Home' headerBtn3='LogOut'/>
+          <Header headerBtn1='Profile' headerBtn2='Home' headerBtn3='LogOut' id={this.props.match.params.id}/>
           <div className='feed'>
             <UserInfo className='userInfo' user={this.state.user}></UserInfo>
             <Post posts={this.state.posts} className='postInfo' post={this.postHandler} onChangePostInput={this.onChangePostHandler} likePost={this.likeHandler}></Post>
