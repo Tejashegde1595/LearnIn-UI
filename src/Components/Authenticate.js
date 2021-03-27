@@ -5,6 +5,7 @@ import '../Styles/Authenticate.css';
 import Login from "./Login";
 import homePhoto from '../Images/studentlearning.jpg';
 import { useHistory } from 'react-router-dom';
+import Constant from '../Constants/Constant';
 class Authenticate extends Component{
     constructor(){
         super();
@@ -63,7 +64,7 @@ class Authenticate extends Component{
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(this.state.registerFormData)
         };
-        fetch('http://localhost:8080/api/user/signup',requestOptions)
+        fetch(new Constant().connection_string+'user/signup',requestOptions)
         .then(response=>{
             return response.json();
         }).then((data)=>{
@@ -87,7 +88,7 @@ class Authenticate extends Component{
                  'Authorization':'Basic '+authorizationToken
                 }
         };
-        fetch('http://localhost:8080/api/user/signin',requestOptions)
+        fetch(new Constant().connection_string+'user/signin',requestOptions)
         .then(response=>{
             localStorage.setItem('access_token',response.headers.get('access_token'));
             return response.json();
@@ -96,7 +97,8 @@ class Authenticate extends Component{
                 this.setState({loginMessage:data.message});
                 return;
             }
-            this.props.history.push('/feed');
+            localStorage.setItem('user_id',data.id);
+            this.props.history.push('/feed/'+data.id);
         }).catch(err=>{
             console.log(err);
         })
